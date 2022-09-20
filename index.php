@@ -16,7 +16,7 @@ define('DB_NAME',       "game-store");
 $result = [];
 
 $data = new GameRequests;
-$data->setId(0);
+$data->setId(2);
 $result['games'] = $data->readGames();
 
 // print_r($result);
