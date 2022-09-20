@@ -1,17 +1,23 @@
 <?php
+
+require_once "Connection.php";
+require_once "CrudRequests.php";
+
 header("Content-Type: Application/json");
+header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+header("Allow: GET, POST, OPTIONS, PUT, DELETE");
 
 define('DB_HOST',       "localhost");
 define('DB_USER',       "root");
 define('DB_PASSWORD',   "");
 define('DB_NAME',       "game-store");
 
-require_once "Connection.php";
-require_once "Game.php";
-
 $result = [];
 
-$result['games'] = GameRequests::readGames();
+$data = new GameRequests;
+$data->setId(0);
+$result['games'] = $data->readGames();
 
 // print_r($result);
 die(json_encode($result));
@@ -29,5 +35,3 @@ die(json_encode($result));
 //    $result['error'] = $e->getMessage();
 //    die(json_encode($result));
 // }
-
-

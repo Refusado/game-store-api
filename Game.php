@@ -54,21 +54,3 @@ abstract class Game
         return $this->category;
     }
 }
-
-class GameRequests extends Game
-{
-
-    public function createGame()
-    {
-    }
-
-    public static function readGames()
-    {
-        $connection = Connection::getConnection();
-        $query = $connection->prepare("SELECT * FROM `games`");
-        
-        $query->execute();
-        return $query->fetchAll(PDO::FETCH_ASSOC);
-        
-    }
-}
