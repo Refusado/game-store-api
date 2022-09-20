@@ -1,13 +1,13 @@
 <?php
 
-class Game
+abstract class Game
 {
 
-    private $id = 0;
-    private $name = null;
-    private $price = 0;
-    private $brand = null;
-    private $category = null;
+    public $id = 0;
+    public $name = null;
+    public $price = 0;
+    public $company = null;
+    public $category = null;
 
     public function setId(int $id): void
     {
@@ -36,21 +36,39 @@ class Game
         return $this->price;
     }
 
-    public function setBrand(int $brand): void
+    public function setCompany(int $company): void
     {
-        $this->brand = $brand;
+        $this->company = $company;
     }
-    public function getBrand(): int
+    public function getCompany(): int
     {
-        return $this->brand;
+        return $this->company;
     }
 
-    public function setCat(int $cat): void
+    public function setCategory(int $category): void
     {
-        $this->category = $cat;
+        $this->category = $category;
     }
-    public function getCat(): int
+    public function getCategory(): int
     {
         return $this->category;
+    }
+}
+
+class GameRequests extends Game
+{
+
+    public function createGame()
+    {
+    }
+
+    public static function readGames()
+    {
+        $connection = Connection::getConnection();
+        $query = $connection->prepare("SELECT * FROM `games`");
+        
+        $query->execute();
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+        
     }
 }
