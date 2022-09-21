@@ -20,19 +20,32 @@ $request = new Request;
 $request->setId($gameId);
 
 
+if ($method === "post") {
+    if (isset($gameName, $gamePrice, $gameCompany, $gameCategory)) {
+        try {
+            $request->setName($gameName);
+            $request->setPrice($gamePrice);
+            $request->setCompany($gameCompany);
+            $request->setCategory($gameCategory);
 
-try {
-    $data['games'] = $request->readGames();
-
-    $data['total'] = count($data['games']);
-} catch (Exception $e) {
-    $data['error'] = $e->getMessage();
+            $data['games'] = $request->createGame();
+        } catch (Exception $e) {
+            $data['message'] = $e->getMessage();
+        }
+    } else {
+        $data['message'] = "Please set all data";
+    }
 }
 
-// print_r($data);
+if ($method === "get") {
+    try {
+        $data['games'] = $request->readGames();
 
-
-
+        $data['total'] = count($data['games']);
+    } catch (Exception $e) {
+        $data['message'] = $e->getMessage();
+    }
+}
 
 
 
