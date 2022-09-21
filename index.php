@@ -1,37 +1,40 @@
 <?php
 
+require_once "config/headers.php";
+
 require_once "Connection.php";
-require_once "CrudRequests.php";
-
-header("Content-Type: Application/json");
-header('Access-Control-Allow-Origin: *');
-header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-header("Allow: GET, POST, OPTIONS, PUT, DELETE");
-
-define('DB_HOST',       "localhost");
-define('DB_USER',       "root");
-define('DB_PASSWORD',   "");
-define('DB_NAME',       "game-store");
-
-$result = [];
-
-$data = new GameRequests;
-$data->setId(2);
-$result['games'] = $data->readGames();
-
-// print_r($result);
-die(json_encode($result));
+require_once "Request.php";
 
 
-// try {
+$data = [];
 
-//    $connection = Connection::getConnection();
-//    $query      = $connection->query("SELECT game_name, price, company FROM games");
-//    $allGames   = $query->fetchAll(PDO::FETCH_ASSOC);
+$method         = $_REQUEST['method']   ?? null;
 
-//    die(json_encode($allGames));
-// } catch (Exception $e) {
+$gameId         = $_REQUEST['id']       ?? 0;
+$gameName       = $_REQUEST['name']     ?? null;
+$gamePrice      = $_REQUEST['price']    ?? null;
+$gameCompany    = $_REQUEST['company']  ?? null;
+$gameCategory   = $_REQUEST['category'] ?? null;
 
-//    $result['error'] = $e->getMessage();
-//    die(json_encode($result));
-// }
+$request = new Request;
+$request->setId($gameId);
+
+
+
+try {
+    $data['games'] = $request->readGames();
+
+    $data['total'] = count($data['games']);
+} catch (Exception $e) {
+    $data['error'] = $e->getMessage();
+}
+
+// print_r($data);
+
+
+
+
+
+
+
+die(json_encode($data));

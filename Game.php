@@ -3,53 +3,53 @@
 abstract class Game
 {
 
-    public $id = 0;
-    public $name = null;
-    public $price = 0;
-    public $company = null;
-    public $category = null;
+    private $id = 0;
+    private $name = null;
+    private $price = 0;
+    private $company = null;
+    private $category = null;
 
-    public function setId(int $id): void
+    public function setId($id)
     {
         $this->id = $id;
     }
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
 
-    public function setName(string $name): void
+    public function setName($name)
     {
         $this->name = $name;
     }
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setPrice(int $price): void
+    public function setPrice($price)
     {
         $this->price = $price;
     }
-    public function getPrice(): int
+    public function getPrice()
     {
         return $this->price;
     }
 
-    public function setCompany(int $company): void
+    public function setCompany($company)
     {
         $this->company = $company;
     }
-    public function getCompany(): int
+    public function getCompany()
     {
         return $this->company;
     }
 
-    public function setCategory(int $category): void
+    public function setCategory($category)
     {
         $this->category = $category;
     }
-    public function getCategory(): int
+    public function getCategory()
     {
         return $this->category;
     }

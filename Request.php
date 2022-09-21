@@ -2,7 +2,7 @@
 
 require_once "Game.php";
 
-class GameRequests extends Game
+class Request extends Game
 {
 
     public function createGame()
@@ -26,14 +26,17 @@ class GameRequests extends Game
             if ($query->execute()) {
                 return $query->fetchAll(PDO::FETCH_ASSOC);
             }
-        } else if ($this->getId() >0) {
-            $query = $connection->prepare("SELECT * FROM `games` WHERE `game_id` = :_id");
+        } else {
+            $query = $connection->prepare("SELECT * FROM `games` WHERE `id` = :_id");
             $query->bindValue(":_id", $this->getId(), PDO::PARAM_INT);
             
             if ($query->execute()) {
+                if ($query->rowCount() == 0) {
+                    header("HTTP/1.1 404 Not Found");
+                    throw new Exception("Game with id '" . $this->getId() . "' not found", 1);
+                }
                 return $query->fetchAll(PDO::FETCH_ASSOC);
             }
         }
-        
     }
 }

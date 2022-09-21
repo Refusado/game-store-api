@@ -1,9 +1,11 @@
 <?php
 
+require "config/database.php";
+
 class Connection
 {
 
-    private static $connection;
+    private $connection;
 
     public static function getConnection()
     {
