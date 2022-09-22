@@ -1,6 +1,6 @@
 <?php
 
-require "config/database.php";
+require "config/environment.php";
 
 class Connection
 {
@@ -15,7 +15,7 @@ class Connection
 
             try {
                 if (!isset($connection)) {
-                    @$connection = new PDO($pdoConfig, DB_USER, DB_PASSWORD);
+                    @$connection = new PDO($pdoConfig, DB_USER, DB_PASS);
                     @$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 }
                 return $connection;

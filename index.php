@@ -1,6 +1,6 @@
 <?php
 
-require "Request.php";
+require "src/Request.php";
 
 $_URL       = explode('/', @$_GET['url']);
 $data       = [];
@@ -8,7 +8,7 @@ $method     = null;
 $request    = new Request;
 
 if ($_URL[0] === "create") {
-    require "config/headers.php";
+    require "src/config/headers.php";
 
     if (
         !empty($_URL[1]) &&
@@ -34,7 +34,7 @@ if ($_URL[0] === "create") {
 }
 
 if ($_URL[0] === "games") {
-    require "config/headers.php";
+    require "src/config/headers.php";
 
     if (!empty($_URL[1])) {
         $request->setId($_URL[1]);
