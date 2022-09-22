@@ -1,11 +1,13 @@
 <?php
 
+require_once "config/headers.php";
+require_once "Connection.php";
 require_once "Game.php";
 
 class Request extends Game
 {
 
-    public function createGame()
+    public function insertNewGame()
     {
         $connection = Connection::getConnection();
 
@@ -17,11 +19,11 @@ class Request extends Game
 
         if ($query->execute()) {
             $this->setId($connection->lastInsertId());
-            return $this->readGames();
+            return $this->getAllGames();
         }
     }
 
-    public function readGames()
+    public function getAllGames()
     {
         $connection = Connection::getConnection();
 

@@ -1,34 +1,28 @@
 <?php
 
-require_once "config/headers.php";
+// use function PHPSTORM_META\type;
 
-require_once "Connection.php";
 require_once "Request.php";
 
+$_URL       = explode('/', $_GET['url']);
+$data       = [];
+$method     = null;
+$request    = new Request;
 
-$data = [];
+if ($_URL[0] === "create") {
+    if (
+        !empty($_URL[1]) &&
+        !empty($_URL[2]) &&
+        !empty($_URL[3]) &&
+        !empty($_URL[4])
+    ) {
+        $request->setName($_URL[1]);
+        $request->setPrice($_URL[2]);
+        $request->setCompany($_URL[3]);
+        $request->setCategory($_URL[4]);
 
-$method         = $_REQUEST['method']   ?? null;
-
-$gameId         = $_REQUEST['id']       ?? 0;
-$gameName       = $_REQUEST['name']     ?? null;
-$gamePrice      = $_REQUEST['price']    ?? null;
-$gameCompany    = $_REQUEST['company']  ?? null;
-$gameCategory   = $_REQUEST['category'] ?? null;
-
-$request = new Request;
-$request->setId($gameId);
-
-
-if ($method === "post") {
-    if (isset($gameName, $gamePrice, $gameCompany, $gameCategory)) {
         try {
-            $request->setName($gameName);
-            $request->setPrice($gamePrice);
-            $request->setCompany($gameCompany);
-            $request->setCategory($gameCategory);
-
-            $data['games'] = $request->createGame();
+            $data['games'] = $request->insertNewGame();
         } catch (Exception $e) {
             $data['message'] = $e->getMessage();
         }
@@ -37,9 +31,11 @@ if ($method === "post") {
     }
 }
 
-if ($method === "get") {
+if ($_URL[0] === "games") {
+    $request->setId($_URL[1]);
+
     try {
-        $data['games'] = $request->readGames();
+        $data['games'] = $request->getAllGames();
 
         $data['total'] = count($data['games']);
     } catch (Exception $e) {

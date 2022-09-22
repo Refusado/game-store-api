@@ -4,7 +4,6 @@ require "config/database.php";
 
 class Connection
 {
-
     private $connection;
 
     public static function getConnection()
