@@ -6,8 +6,8 @@ abstract class Game
     private $id = 0;
     private $name = null;
     private $price = 0;
-    private $company = null;
     private $category = null;
+    private $company = null;
 
     public function setId($id)
     {
@@ -36,15 +36,6 @@ abstract class Game
         return $this->price;
     }
 
-    public function setCompany($company)
-    {
-        $this->company = $company;
-    }
-    public function getCompany()
-    {
-        return $this->company;
-    }
-
     public function setCategory($category)
     {
         $this->category = $category;
@@ -52,5 +43,14 @@ abstract class Game
     public function getCategory()
     {
         return $this->category;
+    }
+
+    public function setCompany($company)
+    {
+        $this->company = $company;
+    }
+    public function getCompany()
+    {
+        return $this->company;
     }
 }

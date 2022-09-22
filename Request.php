@@ -11,11 +11,25 @@ class Request extends Game
     {
         $connection = Connection::getConnection();
 
-        $query = $connection->prepare("INSERT INTO `games` VALUES (NULL, :_name, :_price, :_company, :_category)");
+        $query = $connection->prepare("SELECT * FROM `companies` WHERE `company_id` = :_company_id");
+        $query->bindValue(":_company_id", $this->getCompany(), PDO::PARAM_INT);
+        if ($query->execute() && $query->rowCount() == 0) {
+            header("HTTP/1.1 404 Company Not Found");
+            throw new Exception("Company with id '" . $this->getCompany() . "' not found", 1);
+        }
+
+        $query = $connection->prepare("SELECT * FROM `categories` WHERE `category_id` = :_category_id");
+        $query->bindValue(":_category_id", $this->getCategory(), PDO::PARAM_INT);
+        if ($query->execute() && $query->rowCount() == 0) {
+            header("HTTP/1.1 404 Category Not Found");
+            throw new Exception("Category with id '" . $this->getCategory() . "' not found", 1);
+        }
+
+        $query = $connection->prepare("INSERT INTO `games` VALUES (NULL, :_name, :_price, :_category, :_company)");
         $query->bindValue(":_name", $this->getName(), PDO::PARAM_STR);
         $query->bindValue(":_price", $this->getPrice(), PDO::PARAM_STR);
-        $query->bindValue(":_company", $this->getCompany(), PDO::PARAM_INT);
         $query->bindValue(":_category", $this->getCategory(), PDO::PARAM_INT);
+        $query->bindValue(":_company", $this->getCompany(), PDO::PARAM_INT);
 
         if ($query->execute()) {
             $this->setId($connection->lastInsertId());

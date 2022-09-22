@@ -18,8 +18,8 @@ if ($_URL[0] === "create") {
     ) {
         $request->setName($_URL[1]);
         $request->setPrice($_URL[2]);
-        $request->setCompany($_URL[3]);
-        $request->setCategory($_URL[4]);
+        $request->setCategory($_URL[3]);
+        $request->setCompany($_URL[4]);
 
         try {
             $data['games'] = $request->insertNewGame();
@@ -32,7 +32,9 @@ if ($_URL[0] === "create") {
 }
 
 if ($_URL[0] === "games") {
-    $request->setId($_URL[1]);
+    if (!empty($_URL[1])) 
+        $request->setId($_URL[1]);
+    
 
     try {
         $data['games'] = $request->getAllGames();
