@@ -1,5 +1,6 @@
 <?php
 
+require "src/config/headers.php";
 require "config/environment.php";
 
 class Connection
