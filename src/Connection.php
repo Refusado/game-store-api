@@ -13,6 +13,7 @@ class Connection
         try {
             @$pdoConfig  = "mysql:host=" . DB_HOST . ";";
             @$pdoConfig .= "dbname=" . DB_NAME . ";";
+            @$pdoConfig .= "charset=utf8mb4";
 
             try {
                 if (!isset($connection)) {
@@ -21,7 +22,7 @@ class Connection
                 }
                 return $connection;
             } catch (PDOException $e) {
-                throw new Exception($e->getMessage());
+                throw new Exception("An database error has occurred. Please contact the developer.", 1);
             }
         } catch (Exception $e) {
             header("HTTP/1.1 500 Internal Server Error");
