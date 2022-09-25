@@ -20,6 +20,26 @@
                 20vw 0 0 0 #212529,
                 40vw 0 0 0 #212529;
         }
+
+        .url {
+            background-color: red;
+        }
+
+        .floating {
+            animation: floating 2500ms infinite ease-in-out;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translatey(0);
+                filter: drop-shadow(6px 6px 8px #00000055)
+            }
+
+            50% {
+                filter: drop-shadow(6px 0px 8px #00000055);
+                transform: translate(0, 6px);
+            }
+        }
     </style>
 </head>
 
@@ -68,27 +88,56 @@
         </section>
 
         <section class="row d-flex align-items-center py-4 py-md-5 mb-5">
-            <div class="col-12 col-md-11 col-lg-8 ms-auto my-4">
-                <div class="col-11 col-md-8 border border-1 border-dark mx-auto rounded shadow p-4">
-                    <h3 class="fs-3 fw-bold">Como funciona</h3>
-                    <p class="py-3">
-                        Para realizar todas as operações é preciso enviar os parâmetros na URI da API, com isso você terá a URL final para conexão a depender da operação desejada.
+            <div class=" mx-auto my-4 d-flex align-items-center justify-content-evenly flex-wrap gap-4">
+                <div class="d-inline-block mb-4 order-md-2">
+                    <h3 class="fs-2 mb-3 text-center fw-bold">COMO FUNCIONA</h3>
+                    <img 
+                        class="col-8 col-md-5 d-block mx-auto floating" src="../assets/thinking.svg"
+                        alt="Thinking image">
+                </div>
+                <div class="col-11 col-md-7 col-lg-6 col-xl-5 border border-1 border-dark rounded shadow p-4 ">
+                    <p class="pb-3">
+                        Para realizar todas as operações é preciso enviar os parâmetros na URI da API, com isso você
+                        terá a URL final para conexão a depender da operação desejada.
                     </p>
                     <p class="m-0">
-                        <span style="letter-spacing: -0.06em;" class="text-bg-dark bg-opacity-10 text-dark font-monospace d-inline-block">
-                            https://games-store-api.herokuapp.com/[param1]/[param2]...    
+                        <span style="letter-spacing: -0.06em;"
+                            class="text-bg-dark bg-opacity-10 text-dark font-monospace d-inline-block">
+                            https://games-store-api.herokuapp.com/[param1]/[param2]...
                         </span>
                     </p>
                 </div>
             </div>
 
-            <ul class="list-unstyled mx-auto mt-3 border-1 border-dark">
-                <li>
+            <ul class="list-unstyled mx-auto mt-3 d-flex flex-wrap justify-content-evenly p-0">
+                <li class="col-5">
+                    <h4 class="fs-4 fw-bold text-center">CREATE</h4>
+
+                    <div class="mx-auto">
+                        <p
+                            class="p-2 border border-1 border-secondary border-opacity-25 bg-secondary bg-opacity-25 rounded-top mb-0">
+                            https://games-store-api.herokuapp.com/gamehttps://games-store-api.herokhttps://games-store-api.herokhttps://games-store-api.heroks
+                        </p>
+                        <div class="p-2 bg-dark bg-opacity-75 border-top-0 rounded-bottom text-light fw-bold text-center"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#createSpoiler"
+                            aria-expanded="false">
+                            SHOW
+                        </div>
+                    </div>
+
+                    <div class="collapse my-3" id="createSpoiler">
+                        <div class="card card-body text-bg-dark">
+                            [JSONCODE]
+                        </div>
+                    </div>
+                </li>
+                <li class="col-5">
                     <h4 class="fs-4 fw-bold">READ</h4>
                     <div class="input-group">
                         <span class="input-group-text">https://games-store-api.herokuapp.com/games</span>
-                        <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#readSpoiler" aria-expanded="false">
-                            Output
+                        <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#readSpoiler" aria-expanded="false">
+                            SHOW
                         </button>
                     </div>
                     <div class="collapse my-3" id="readSpoiler">
