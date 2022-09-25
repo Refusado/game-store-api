@@ -12,56 +12,95 @@
         * {
             font-family: sans-serif !important;
         }
+
         .shadow-stripe {
             box-shadow:
-            -20vw 0 0 0 #212529,
-            -40vw 0 0 0 #212529,
-            20vw 0 0 0 #212529,
-            40vw 0 0 0 #212529
-            ;
+                -20vw 0 0 0 #212529,
+                -40vw 0 0 0 #212529,
+                20vw 0 0 0 #212529,
+                40vw 0 0 0 #212529;
         }
     </style>
 </head>
 
-<body class="bg-light">
-    <main class="container-md">
+<body class="bg-light pb-5">
+    <main class="container pb-5">
         <h1 class="text-center my-4 fs-1 fw-bold">Game Store API</h1>
-        <h2 class="col-lg-8 col-xl-6 mx-auto fs-5 my-5 text-center">Uma API para <b>simular interações com o banco de dados</b> de uma loja fictícia de jogos</h2>
+        <h2 class="col-lg-8 col-xl-6 mx-auto fs-5 my-5 text-center">Uma API para <b>realizar interações com o banco de
+                dados</b> de uma loja fictícia de jogos</h2>
 
-        <div class="row d-flex align-items-center py-4 p-md-5 bg-dark text-light shadow-stripe">
-            <div class="col-xl-7 mx-auto">
-                <h5>Mantendo o projeto simples</h5><hr class="w-25 my-4">
-                <p>Não é necessário a utilização de headers para o consumo da API, é possível realizar todas as <b>requisições HTTP</b> disponíveis através de parâmetros passados na URL. (Há suporte para todas operações CRUD)</p>
+        <section class="row d-flex align-items-center py-4 py-md-5 bg-dark text-light shadow-stripe">
+            <div class="col-xl-7 me-auto">
+                <h5>Mantendo o projeto simples...</h5>
+                <hr class="w-25 my-4">
+                <p>Não é necessário a utilização de headers para o consumo da API, é possível realizar todas as
+                    <b>requisições HTTP</b> disponíveis através de parâmetros passados na URL. (Há suporte para todas
+                    operações CRUD)
+                </p>
             </div>
-            <div class="col-10 col-md-6 col-xl-4 mx-auto mt-4 text-light">
+            <div class="col-10 col-md-6 col-xl-4 mx-auto mx-xl-0 ms-xl-auto mt-4 text-light">
                 <h5 class="text-center fw-bold opacity-75">ESTRUTURA DE DADOS</h5>
                 <table class="table table-dark table-bordered">
                     <tbody>
                         <tr>
-                            <td scope="col" class="text-end">ID</td>
-                            <td class="text-muted">1</td>
+                            <td scope="col">ID</td>
+                            <td class="text-muted">5</td>
                         </tr>
                         <tr>
-                            <td scope="col" class="text-end">NAME</td>
-                            <td class="text-muted">GTA</td>
+                            <td scope="col">NAME</td>
+                            <td class="text-muted">Uncharted 4: A Thief's End</td>
                         </tr>
                         <tr>
-                            <td scope="col" class="text-end">PRICE</td>
-                            <td class="text-muted">30</td>
+                            <td scope="col">PRICE</td>
+                            <td class="text-muted">64.00</td>
                         </tr>
                         <tr>
-                            <td scope="col" class="text-end">CATEGORY</td>
+                            <td scope="col">CATEGORY</td>
                             <td class="text-muted">Ação-Aventura</td>
                         </tr>
                         <tr>
-                            <td scope="col" class="text-end">COMPANY</td>
-                            <td class="text-muted">Rockstar Games</td>
+                            <td scope="col">COMPANY</td>
+                            <td class="text-muted">Naughty Dog</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-        </div>
+        </section>
+
+        <section class="row d-flex align-items-center py-4 py-md-5 mb-5">
+            <div class="col-12 col-md-11 col-lg-8 ms-auto my-4">
+                <div class="col-11 col-md-8 border border-1 border-dark mx-auto rounded shadow p-4">
+                    <h3 class="fs-3 fw-bold">Como funciona</h3>
+                    <p class="py-3">
+                        Para realizar todas as operações é preciso enviar os parâmetros na URI da API, com isso você terá a URL final para conexão a depender da operação desejada.
+                    </p>
+                    <p class="m-0">
+                        <span style="letter-spacing: -0.06em;" class="text-bg-dark bg-opacity-10 text-dark font-monospace d-inline-block">
+                            https://games-store-api.herokuapp.com/[param1]/[param2]...    
+                        </span>
+                    </p>
+                </div>
+            </div>
+
+            <ul class="list-unstyled mx-auto mt-3 border-1 border-dark">
+                <li>
+                    <h4 class="fs-4 fw-bold">READ</h4>
+                    <div class="input-group">
+                        <span class="input-group-text">https://games-store-api.herokuapp.com/games</span>
+                        <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#readSpoiler" aria-expanded="false">
+                            Output
+                        </button>
+                    </div>
+                    <div class="collapse my-3" id="readSpoiler">
+                        <div class="card card-body text-bg-dark">
+                            [JSONCODE]
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </section>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
