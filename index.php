@@ -96,4 +96,4 @@ if ($_SERVER['REQUEST_URI'] != "/game-store-api/") {
     header("location: $rootPath/game-store-api/");
 }
 
-echo "<h1>Game Store Api</h1>";
+require "./home/index.php";

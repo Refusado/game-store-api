@@ -50,8 +50,8 @@
 
 
 .collapser::after {
-    content: '▼';
+    content: '▲';
 }
 .collapser.collapsed::after {
-    content: '▲';
+    content: '▼';
 }

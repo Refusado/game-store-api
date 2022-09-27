@@ -15,7 +15,7 @@
 .hljs-variable,
 .hljs-template-tag,
 .hljs-template-variable {
-  color: #f8f9fa8e;
+  color: #f8f9faa0;
 }
 
 .hljs-keyword,
@@ -37,7 +37,7 @@
 .hljs-subst,
 .hljs-punctuation,
 .hljs-operator {
-  color: #f8f9fa5b;
+  color: #f8f9fa65;
 }
 
 .hljs-comment {
