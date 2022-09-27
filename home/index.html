@@ -74,19 +74,12 @@
                         terá a URL final para conexão a depender da operação desejada.
                     </p>
                     <p class="m-0">
-                        A baixo você verá um exemplo de cada operação sendo usada com javascript.
+                        A baixo você verá um  de cada operação sendo usada com javascript.
                     </p>
-                    <!-- <p class="m-0">
-                        <code class="url text-dark">
-                            <span>
-                                games-store-api.herokuapp.com/[param1]/[param2]...
-                            </span>
-                        </code>
-                    </p> -->
                 </div>
             </div>
 
-            <h3 class="url col-6 mx-auto my-4">
+            <h3 class="url col-12 col-lg-6 mx-auto my-4">
                 <span>
                     games-store-api.herokuapp.com/...
                 </span>
@@ -97,30 +90,32 @@
                     <h5 class="fs-5 fw-bold text-start opacity-75">C<span class="opacity-75">REATE</span></h5>
 
                     <div class="mx-auto">
-                        <p class="url">
+                        <p class="url my-0">
                             <span>
                                 create/The Sims 4/98.99/Simulção/Electronic Arts/
                             </span>
                         </p>
-                        <div class="col-2 p-1 px-0 btn btn-outline-dark opacity-75 rounded fw-bold text-center"
-                            type="button" data-bs-toggle="collapse" data-bs-target="#createSpoiler"
+                        <div class="text-end">
+                            <span class="btn bg-dark bg-opacity-75 text-light rounded-1 mt-2 collapser"
+                            data-bs-toggle="collapse" data-bs-target="#createSpoiler"
                             aria-expanded="false">
-                            VER
+                                 
+                            </span>
                         </div>
                     </div>
 
                     <div class="collapse my-3" id="createSpoiler">
-                        <h5>Input</h5>
-                        <pre>
-                            <code class="javascript">
+                        <pre style="margin-bottom: -3rem;">
+                            <code class="javascript">// INPUT
+                                
 fetch('games-store-api.herokuapp.com/create/The Sims 4/98.99/Simulção/Electronic Arts/')
 .then(res => res.json())
 .then(console.log);
                             </code>
                         </pre>
-                        <h5>Output</h5>
                         <pre>
-                            <code>
+                            <code>// OUTPUT
+
 {
     "games": [
         {
@@ -146,10 +141,10 @@ fetch('games-store-api.herokuapp.com/create/The Sims 4/98.99/Simulção/Electron
                                 games/5/
                             </span>
                         </p>
-                        <div class="col-2 p-1 px-0 btn btn-outline-dark opacity-75 rounded fw-bold text-center"
+                        <div class="p-1 link-secondary text-start text-decoration-underline"
                             type="button" data-bs-toggle="collapse" data-bs-target="#readSpoiler"
                             aria-expanded="false">
-                            VER
+                            
                         </div>
                     </div>
 
@@ -185,10 +180,10 @@ fetch('games-store-api.herokuapp.com/create/The Sims 4/98.99/Simulção/Electron
                                 update/2/Grand Theft Auto V/20.00/Ação-Aventura/Rocstar/
                             </span>
                         </p>
-                        <div class="col-2 p-1 px-0 btn btn-outline-dark opacity-75 rounded fw-bold text-center"
+                        <div class="p-1 link-secondary text-start text-decoration-underline"
                             type="button" data-bs-toggle="collapse" data-bs-target="#updateSpoiler"
                             aria-expanded="false">
-                            VER
+                            
                         </div>
                     </div>
 
@@ -209,10 +204,10 @@ fetch('games-store-api.herokuapp.com/create/The Sims 4/98.99/Simulção/Electron
                                 delete/84/
                             </span>
                         </p>
-                        <div class="col-2 p-1 px-0 btn btn-outline-dark opacity-75 rounded fw-bold text-center"
+                        <div class="p-1 link-secondary text-start text-decoration-underline"
                             type="button" data-bs-toggle="collapse" data-bs-target="#deleteSpoiler"
                             aria-expanded="false">
-                            VER
+                            
                         </div>
                     </div>
 
