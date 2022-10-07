@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="./home/img/controller.svg">
+    <link rel="icon" type="image/x-icon" href="./home/assets/img/controller.svg">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
@@ -34,7 +34,7 @@
                     <tbody>
                         <tr>
                             <td scope="col">ID</td>
-                            <td class="text-muted">5</td>
+                            <td class="text-muted">4</td>
                         </tr>
                         <tr>
                             <td scope="col">NAME</td>
@@ -61,8 +61,8 @@
             <div class="pt-5 pb-2 mx-auto d-flex align-items-center justify-content-evenly flex-wrap gap-4">
                 <div class="d-inline-block mb-4 order-md-2">
                     <h3 class="fs-2 mb-3 text-center fw-bold">COMO FUNCIONA?</h3>
-                    <img class="col-8 col-md-5 d-block mx-auto floating" src="./home/img/thinking.svg" alt="Thinking image">
-                    <img class="col-3 col-md-3 d-block floating2 ms-auto" src="./home/img/thinking.svg" alt="Thinking image">
+                    <img class="col-8 col-md-5 d-block mx-auto floating" src="./home/assets/img/thinking.svg" alt="Thinking image">
+                    <img class="col-3 col-md-3 d-block floating2 ms-auto" src="./home/assets/img/thinking.svg" alt="Thinking image">
                 </div>
                 <div class="col-11 col-md-6 col-xl-5 border border-1 border-dark rounded shadow p-4 ">
                     <p class="pb-3">
@@ -130,12 +130,13 @@
         </section>
     </main>
 
-    <footer class="bg-dark text-light py-5">
+    <footer class="bg-dark text-light py-4">
         <div class="container">
-            <p class="mb-0 py-2 text-end ms-auto d-inline-block w-50">Renan Freitas &copy 2022
+            <p class="mb-0 py-2 text-end ms-auto d-inline-block w-100">Renan Freitas &copy 2022
                 <span class="p-2">
-                    <a class="mx-1" href="https://github.com/Refusado"><img src="./home/img/github.svg" alt="@Refusado github anchor"></a>
-                    <a class="mx-1" href="https://discord.com/users/412685400847679508"><img src="./home/img/discord.svg" alt="Refu#8308 discord anchor"></a>
+                    <a class="mx-2" target="_blank" href="https://github.com/Refusado"><img src="./home/assets/img/github.svg" alt="Github" title="@Refusado"></a>
+                    <a class="mx-2" target="_blank" href="https://discord.com/users/412685400847679508"><img src="./home/assets/img/discord.svg" alt="Discord" title="Refu#8308"></a>
+                    <a class="mx-2" target="_blank" href="https://www.linkedin.com/in/refu/"><img src="./home/assets/img/linkedin.svg" alt="LinkedIn" title="Renan Freitas"></a>
                 </span>
             </p>
         </div>
