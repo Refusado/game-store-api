@@ -17,16 +17,16 @@ class Connection
 
             try {
                 if (!isset($connection)) {
-                    @$connection = new PDO($pdoConfig, DB_USER, DB_PASS);
+                    @$connection = new PDO($pdoConfig, DB_USER, DB_PASS,);
                     @$connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 }
                 return $connection;
             } catch (PDOException $e) {
-                throw new Exception("An database error has occurred. Please contact the developer.", 1);
+                throw new Exception("An error has occurred on the server. Try again later.", 1);
             }
         } catch (Exception $e) {
             header("HTTP/1.1 500 Internal Server Error");
-            throw new Exception("An error has occurred on the server. Please contact the developer.", 1);
+            throw new Exception("An error has occurred on the server. Try again later.", 1);
         }
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
 $_URL[0] = null;
-$data    = [];
+$data   = [];
 
 if (@$_GET['url']) {
     require "src/Request.php";
@@ -37,10 +37,20 @@ if ($_URL[0] === "create") {
         $request->setCategory($_URL[3]);
         $request->setCompany($_URL[4]);
 
-        try {
-            $data['games'] = $request->insertGame();
-        } catch (Exception $e) {
-            $data['message'] = $e->getMessage();
+        
+        $att = 0;
+        do {
+            try {
+                $data['games'] = $request->insertGame();
+            } catch (Exception $e) {
+                $att++;
+                continue;
+            }
+            break;
+        } while($att < 30);
+
+        if ($att >= 30) {
+            $data['message'] = "There was an error when registering the game, try again.";
         }
     } else {
         $data['message'] = "Please set all data";
@@ -91,9 +101,9 @@ if ($_URL[0] === "update") {
     die(json_encode($data));
 }
 
-if ($_SERVER['REQUEST_URI'] != "/game-store-api/") {
+if ($_SERVER['REQUEST_URI'] != "/") {
     $rootPath = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]";
-    header("location: $rootPath/game-store-api/");
+    // header("location: $rootPath/"); // -> PARA DEPLOY EM PRODUÇÃO
 }
 
 require "./home/index.php";

@@ -11,15 +11,15 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
     <link rel="stylesheet" href="home/highlightjs.css">
     <link rel="stylesheet" href="home/style.css">
-    <title>Game Store API</title>
+    <title>Games Store API</title>
 </head>
 
 <body class="bg-light">
     <main class="container">
-        <h1 class="text-center my-4 fs-1 fw-bold">Game Store API</h1>
-        <h2 class="col-lg-8 col-xl-6 mx-auto fs-5 my-5 text-center">Uma ingênua API para <b>realizar interações com o banco de dados</b> de uma loja fictícia de jogos</h2>
+        <h1 class="text-center my-4 fs-1 fw-bold">Games Store API</h1>
+        <h2 class="col-lg-8 col-xl-6 mx-auto fs-5 my-5 py-2 text-center">Uma ingênua API para <b>realizar interações com o banco de dados</b> de uma loja fictícia de jogos</h2>
 
-        <section class="row d-flex align-items-center py-4 py-md-5 bg-dark text-light shadow-stripe">
+        <section class="row d-flex align-items-center py-4 bg-dark text-light shadow-stripe">
             <div class="col-xl-7 me-auto">
                 <h5>Mantendo o projeto simples...</h5>
                 <hr class="w-25 my-4">
@@ -28,7 +28,7 @@
                     operações CRUD)
                 </p>
             </div>
-            <div class="col-10 col-md-6 col-xl-4 mx-auto mx-xl-0 ms-xl-auto mt-4 text-light">
+            <div class="col-10 col-md-6 col-xl-4 mx-auto mx-xl-0 ms-xl-auto text-light my-5">
                 <h5 class="text-center fw-bold opacity-75">ESTRUTURA DE DADOS</h5>
                 <table class="table table-dark table-bordered">
                     <tbody>
@@ -57,8 +57,8 @@
             </div>
         </section>
 
-        <section class="row d-flex align-items-center py-4 py-md-5">
-            <div class=" mx-auto d-flex align-items-center justify-content-evenly flex-wrap gap-4">
+        <section class="row d-flex align-items-center py-4 py-md-4">
+            <div class="pt-5 pb-2 mx-auto d-flex align-items-center justify-content-evenly flex-wrap gap-4">
                 <div class="d-inline-block mb-4 order-md-2">
                     <h3 class="fs-2 mb-3 text-center fw-bold">COMO FUNCIONA?</h3>
                     <img class="col-8 col-md-5 d-block mx-auto floating" src="./home/img/thinking.svg" alt="Thinking image">
@@ -75,170 +75,69 @@
                 </div>
             </div>
 
-            <h4 class="url col-12 col-lg-6 mx-auto my-5">
+            <h4 class="url col-12 col-lg-6 mx-auto my-4">
                 <span>
                     games-store-api.herokuapp.com/...
                 </span>
             </h4>
 
-            <ul class="list-unstyled mx-auto mt-3 d-flex flex-wrap justify-content-evenly p-0 mt-5">
+            <ul class="list-unstyled mx-auto mt-3 d-flex flex-wrap justify-content-evenly p-0 pb-4 mt-5">
+                <?php
+
+                $codeExemples = file_get_contents("home/assets/examples.json");
+                $codeExemples = json_decode($codeExemples, true);
+
+                foreach ($codeExemples as $op) {
+                    $title = strtoupper($op['name']);
+                    $firstLetter = substr($title, 0, 1);
+                    $title = substr($title, 1);
+
+                    $url = $op['url'];
+                    $input = $op['input'];
+                    $output = $op['output'];
+
+                    echo '
                 <li class="col-12 p-3 col-xl-5">
-                    <h5 class="fs-5 fw-bold text-start opacity-75">C<span class="opacity-75">REATE</span></h5>
+                    <h5 class="fs-5 fw-bold text-start opacity-75">' . $firstLetter . '<span class="opacity-75">' . $title . '</span></h5>
 
                     <div class="mx-auto">
                         <p class="url my-0">
                             <span>
-                                create/The Sims 4/98.99/Simulção/Electronic Arts/
+                                ' . $url . '
                             </span>
                         </p>
                         <div class="text-end">
-                            <span class="btn bg-dark bg-opacity-75 text-light rounded-1 mt-2 collapser collapsed" data-bs-toggle="collapse" data-bs-target="#createSpoiler" aria-expanded="false"></span>
+                            <span class="btn bg-dark bg-opacity-75 text-light rounded-1 mt-2 collapser collapsed" data-bs-toggle="collapse" data-bs-target="#spoiler' . $firstLetter . '" aria-expanded="false"></span>
                         </div>
                     </div>
 
-                    <div class="collapse my-3" id="createSpoiler">
+                    <div class="collapse my-3" id="spoiler' . $firstLetter . '"">
                         <pre style="margin-bottom: -3rem;">
-                            <code class="javascript">// INPUT
-                                
-fetch('games-store-api.herokuapp.com/create/The Sims 4/98.99/Simulção/Electronic Arts/')
-.then(res => res.json())
-.then(console.log);
+                            <code class="javascript">// INPUT' . $input . '
                             </code>
                         </pre>
                         <pre>
-                            <code>// OUTPUT
-
-{
-    "games": [
-        {
-            "id": 84,
-            "name": "The Sims 4",
-            "price": "98.99",
-            "category": "Simul\u00e7\u00e3o",
-            "company": "Electronic Arts"
-        }
-    ]
-}
+                            <code class="json">// OUTPUT' . $output . '
                             </code>
                         </pre>
                     </div>
                 </li>
+                    ';
+                }
 
-
-                <li class="col-12 p-3 col-xl-5">
-                    <h5 class="fs-5 fw-bold text-start opacity-75">R<span class="opacity-75">EAD</span></h5>
-
-                    <div class="mx-auto">
-                        <p class="url my-0">
-                            <span>
-                                games/5/
-                            </span>
-                        </p>
-                        <div class="text-end">
-                            <span class="btn bg-dark bg-opacity-75 text-light rounded-1 mt-2 collapser collapsed" data-bs-toggle="collapse" data-bs-target="#readSpoiler" aria-expanded="false"></span>
-                        </div>
-                    </div>
-
-                    <div class="collapse my-3" id="readSpoiler">
-                        <pre style="margin-bottom: -3rem;">
-                            <code class="javascript">// INPUT
-
-fetch('games-store-api.herokuapp.com/games/5/')
-.then(res => res.json())
-.then(console.log);
-                            </code>
-                        </pre>
-                        <pre>
-                            <code>// OUTPUT
-
-{
-    "games": [
-        {
-            "id": 5,
-            "name": "Uncharted 4: A Thief's End ",
-            "price": "64.00",
-            "category": "A\u00e7\u00e3o-Aventura",
-            "company": "Naughty Dog"
-        }
-    ],
-    "total": 1
-}
-                            </code>
-                        </pre>
-                    </div>
-                </li>
-                <li class="col-12 p-3 col-xl-5">
-                    <h5 class="fs-5 fw-bold text-start opacity-75">U<span class="opacity-75">PDATE</span></h5>
-
-                    <div class="mx-auto">
-                        <p class="url my-0">
-                            <span>
-                                update/2/Grand Theft Auto V/20.00/Ação-Aventura/Rocstar/
-                            </span>
-                        </p>
-                        <div class="text-end">
-                            <span class="btn bg-dark bg-opacity-75 text-light rounded-1 mt-2 collapser collapsed" data-bs-toggle="collapse" data-bs-target="#updateSpoiler" aria-expanded="false"></span>
-                        </div>
-                    </div>
-
-                    <div class="collapse my-3" id="updateSpoiler">
-                        <pre style="margin-bottom: -3rem;">
-                            <code class="javascript">// INPUT
-                            </code>
-                        </pre>
-                        <pre>
-                            <code>// OUTPUT
-                            </code>
-                        </pre>
-                    </div>
-                </li>
-                <li class="col-12 p-3 col-xl-5">
-                    <h5 class="fs-5 fw-bold text-start opacity-75">D<span class="opacity-75">ELETE</span></h5>
-
-                    <div class="mx-auto">
-                        <p class="url my-0">
-                            <span>
-                                delete/84/
-                            </span>
-                        </p>
-                        <div class="text-end">
-                            <span class="btn bg-dark bg-opacity-75 text-light rounded-1 mt-2 collapser collapsed" data-bs-toggle="collapse" data-bs-target="#deleteSpoiler" aria-expanded="false"></span>
-                        </div>
-                    </div>
-                    <div class="collapse my-3" id="deleteSpoiler">
-                        <pre style="margin-bottom: -3rem;">
-                            <code class="javascript">// INPUT
-
-fetch('games-store-api.herokuapp.com/delete/84/')
-.then(res => res.json())
-.then(console.log);
-                            </code>
-                        </pre>
-                        <pre>
-                            <code>// OUTPUT
-
-{
-    "deleted": [
-        {
-            "id": 84,
-            "name": "The Sims 4",
-            "price": "98.99",
-            "category": "Simul\u00e7\u00e3o",
-            "company": "Electronic Arts"
-        }
-    ]
-}
-                            </code>
-                        </pre>
-                    </div>
-                </li>
+                ?>
             </ul>
         </section>
     </main>
 
-    <footer class="bg-dark text-light">
+    <footer class="bg-dark text-light py-5">
         <div class="container">
-            <p class="mb-0 py-4 px-2">Renan Freitas &copy 2022</p>
+            <p class="mb-0 py-2 text-end ms-auto d-inline-block w-50">Renan Freitas &copy 2022
+                <span class="p-2">
+                    <a class="mx-1" href="https://github.com/Refusado"><img src="./home/img/github.svg" alt="@Refusado github anchor"></a>
+                    <a class="mx-1" href="https://discord.com/users/412685400847679508"><img src="./home/img/discord.svg" alt="Refu#8308 discord anchor"></a>
+                </span>
+            </p>
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>

@@ -16,7 +16,8 @@
     display: block;
     overflow-x: auto;
 }
-.url > span {
+
+.url>span {
     font-family: monospace !important;
     letter-spacing: -0.09rem;
     padding: 2px 4px;
@@ -27,13 +28,13 @@
 .floating {
     animation: floating 2800ms infinite ease-in-out;
 }
+
 .floating2 {
     margin-top: -30px;
     animation: floating 2500ms 1000ms infinite ease-in-out;
 }
 
 @keyframes floating {
-
     0%,
     100% {
         transform: translatey(0) translateX(-40px);
@@ -52,6 +53,7 @@
 .collapser::after {
     content: '▲';
 }
+
 .collapser.collapsed::after {
     content: '▼';
 }

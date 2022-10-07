@@ -1,0 +1,26 @@
+[
+    {
+        "name": "create",
+        "url": "create\/[NOME]\/[PRE\u00c7O]\/[CATEGORIA]\/[DESENVOLVEDORA]\/",
+        "input": "\r\n        \r\nfetch('https:\/\/games-store-api.herokuapp.com\/create\/Minecraft\/74.95\/Sandbox\/Mojang Studios\/')\r\n    .then(response => response.json())\r\n    .then(console.log);\r\n                    ",
+        "output": "\r\n\r\n{\r\n    \"games\": [\r\n        {\r\n            \"id\": 14,\r\n            \"name\": \"Minecraft\",\r\n            \"price\": \"74.95\",\r\n            \"category\": \"Sandbox\",\r\n            \"company\": \"Mojang Studios\"\r\n        }\r\n    ]\r\n}\r\n                    "
+    },
+    {
+        "name": "read",
+        "url": "games\/[ID]\/     *(zero ou nada para todos)",
+        "input": "\r\n\r\nfetch('https:\/\/games-store-api.herokuapp.com\/games\/')\r\n    .then(response => response.json())\r\n    .then(console.log);\r\n\r\nfetch('https:\/\/games-store-api.herokuapp.com\/games\/4')\r\n    .then(response => response.json())\r\n    .then(console.log);\r\n\r\n                    ",
+        "output": "\r\n\r\n{\r\n    \"games\": [\r\n        {\r\n            \"id\": 1,\r\n            \"name\": \"Grand Theft Auto V\",\r\n            \"price\": \"24.99\",\r\n            \"category\": \"A\u00e7\u00e3oo-Aventura\",\r\n            \"company\": \"Rockstar Games\"\r\n        },\r\n        [...]\r\n    ],\r\n    \"total\": 37\r\n}\r\n    \r\n{\r\n    \"games\": [\r\n        {\r\n            \"id\": 4,\r\n            \"name\": \"Uncharted 4: A Thief's End\",\r\n            \"price\": \"64.00\",\r\n            \"category\": \"A\u00e7\u00e3o-Aventura\",\r\n            \"company\": \"Naughty Dog\"\r\n        }\r\n    ],\r\n    \"total\": 1\r\n}\r\n                    "
+    },
+    {
+        "name": "update",
+        "url": "update\/[ID]\/[NOME]\/[PRE\u00c7O]\/[CATEGORIA]\/[DESENVOLVEDORA]\/",
+        "input": "\r\n        \r\nfetch('https:\/\/games-store-api.herokuapp.com\/update\/11\/Far Cry 4\/89.99\/FPS\/Ubisoft Montreal\/')\r\n    .then(response => response.json())\r\n    .then(console.log);\r\n                    ",
+        "output": "\r\n\r\n\/\/ ANTES\r\n\r\n{\r\n    \"games\": [\r\n        {\r\n            \"id\": 11,\r\n            \"name\": \"Far Cry 4\",\r\n            \"price\": \"74.95\",\r\n            \"category\": \"Mundo Aberto\",\r\n            \"company\": \"Ubisoft Montreal\"\r\n        }\r\n    ]\r\n}\r\n\r\n\r\n\/\/ DEPOIS\r\n\r\n{\r\n    \"games\": [\r\n        {\r\n            \"id\": 11,\r\n            \"name\": \"Far Cry 4\",\r\n            \"price\": \"89.99\",\r\n            \"category\": \"FPS\",\r\n            \"company\": \"Ubisoft Montreal\"\r\n        }\r\n    ]\r\n}\r\n\r\n                    "
+    },
+    {
+        "name": "delete",
+        "url": "delete\/[ID]\/",
+        "input": "\r\n        \r\nfetch('https:\/\/games-store-api.herokuapp.com\/delete\/15')\r\n    .then(response => response.json())\r\n    .then(console.log);\r\n    \r\n                    ",
+        "output": "\r\n\r\n{\r\n    \"deleted\": [\r\n        {\r\n            \"id\": 15,\r\n            \"name\": \"The Sims 4\",\r\n            \"price\": \"98.99\",\r\n            \"category\": \"Simula\u00e7\u00e3o\",\r\n            \"company\": \"Electronic Arts\"\r\n        }\r\n    ]\r\n}\r\n                    "
+    }
+]

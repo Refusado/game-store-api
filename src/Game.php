@@ -2,7 +2,6 @@
 
 abstract class Game
 {
-
     private $id = 0;
     private $name = null;
     private $price = 0;
