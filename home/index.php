@@ -17,7 +17,7 @@
 <body class="bg-light">
     <main class="container">
         <h1 class="text-center my-4 fs-1 fw-bold">Games Store API</h1>
-        <h2 class="col-lg-8 col-xl-6 mx-auto fs-5 my-5 py-2 text-center">Uma ingênua API para <b>realizar interações com o banco de dados</b> de uma loja fictícia de jogos</h2>
+        <h2 class="col-lg-8 col-xl-6 mx-auto fs-5 my-5 py-2 text-center">Uma ingênua API para <b>realizar interações com o banco de dados</b> de uma loja fictícia de jogos <img src="./home/assets/img/stars.svg" alt="✨"></h2>
 
         <section class="row d-flex align-items-center py-4 bg-dark text-light shadow-stripe">
             <div class="col-xl-7 me-auto">
@@ -64,20 +64,23 @@
                     <img class="col-8 col-md-5 d-block mx-auto floating" src="./home/assets/img/thinking.svg" alt="Thinking image">
                     <img class="col-3 col-md-3 d-block floating2 ms-auto" src="./home/assets/img/thinking.svg" alt="Thinking image">
                 </div>
-                <div class="col-11 col-md-6 col-xl-5 border border-1 border-dark rounded shadow p-4 ">
-                    <p class="pb-3">
-                        Para realizar todas as operações é preciso enviar os parâmetros na URI da API, assim você
-                        terá a URL final para conexão a depender da operação desejada.
+                <div class="col-11 col-md-6 col-xl-5 border border-1 border-dark rounded shadow p-4 mb-4">
+                    <p class="pb-3 m-0">
+                        Simples: você faz a requisição na URL e recebe os resultados. <img src="./home/assets/img/smile.svg" alt=":)">
                     </p>
+                    <p>
+                        Sim, para realizar todas as operações é necessário apenas enviar os devidos dados na URL da API. Então basta colocar as informações a partir da sua necessidade na URI e <i>voilà</i>, você terá a URL final com a estrutura da requisição pronta.
+                    </p>
+                    <hr>
                     <p class="m-0">
-                        A baixo você verá um exemplo de cada operação com a Fetch API, em javascript puro.
+                        Veja a seguir exemplos de cada operação em javascript utilizando a Fetch API e com suas respectivas respostas.
                     </p>
                 </div>
             </div>
 
-            <h4 class="url col-12 col-lg-6 mx-auto my-4">
+            <h4 class="url col-12 col-lg-6 my-4">
                 <span>
-                    games-store-api.herokuapp.com/...
+                    https://games-store-api.herokuapp.com/...
                 </span>
             </h4>
 
@@ -107,7 +110,7 @@
                             </span>
                         </p>
                         <div class="text-end">
-                            <span class="btn bg-dark bg-opacity-75 text-light rounded-1 mt-2 collapser collapsed" data-bs-toggle="collapse" data-bs-target="#spoiler' . $firstLetter . '" aria-expanded="false"></span>
+                            <span class="btn bg-dark bg-opacity-50 text-light rounded-0 rounded-bottom collapser collapsed" data-bs-toggle="collapse" data-bs-target="#spoiler' . $firstLetter . '" aria-expanded="false"></span>
                         </div>
                     </div>
 

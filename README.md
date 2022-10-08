@@ -8,7 +8,31 @@ Esta é uma API (*Application Program Interface*) que permite o acesso e a inter
 
 A URI principal para as requisições é a raiz do projeto, na raiz está também a página de documentação da API com exemplos de todos os métodos disponíveis que você pode usar como referência.
 
-Há um deploy para testes feito com os recursos gratuítos do [Heroku](https://heroku.com), uma plataforma de nuvem que suporta PHP e permite a hospedagem de projetos como este em seu plano grauíto. Você pode testar a API com este deploy na seguinte URL: `https://games-store-api.herokuapp.com/`
+Há um deploy para testes feito com os recursos gratuítos do [Heroku](https://heroku.com), uma plataforma de nuvem que suporta PHP e permite a hospedagem de projetos como este em seu plano grauíto. Você pode testar a API com este deploy na seguinte URL: [ `https://games-store-api.herokuapp.com/`](https://games-store-api.herokuapp.com/)
+
+
+## Como usar
+
+Para realizar todas as operações é necessário apenas enviar os devidos dados na URL da API. Então basta colocar as informações a partir da sua necessidade na URI e voilà, você terá a URL final com a estrutura da requisição pronta.
+
+Referência de URI para operação
+
+- ###### CREATE
+    ``create/[NOME]/[PREÇO]/[CATEGORIA]/[DESENVOLVEDORA]``
+
+- ###### READ
+    ``games/[ID]``
+<sub>*Use nada ou id 0 para todos os jogos</sub>
+
+- ###### UPDATE
+    ``update/[ID]/[NOME]/[PREÇO]/[CATEGORIA]/[DESENVOLVEDORA]``
+
+- ###### DELETE
+    ``delete/[ID]``
+
+---
+
+Veja detalhes e exemplos das operações na documentação completa da API acessando a home da página, na raiz do projeto. (Também hospedada no deploy de teste [https://games-store-api.herokuapp.com/](https://games-store-api.herokuapp.com/))
 
 ## Estrutura de dados
 
@@ -21,10 +45,13 @@ NAME | "Uncharted 4: A Thief's End"
 PRICE | "64.00"
 CATEGORY | "Ação-Aventura"
 COMPANY | "Naughty Dog"
+<br>
 
-**O resultado acima pode ser obtido com a seguinte requisição:*
- `https://games-store-api.herokuapp.com/games/4`
+Os dados acima podem ser obtidos com a seguinte requisição:
+ [ `https://games-store-api.herokuapp.com/games/4`](https://games-store-api.herokuapp.com/games/4)
 
+<details>
+    <summary>Resposta em JSON</summary>
 ```json
 {
     "games": [
@@ -39,3 +66,4 @@ COMPANY | "Naughty Dog"
     "total": 1
 }
 ```
+</details>
