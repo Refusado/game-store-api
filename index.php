@@ -53,6 +53,7 @@ if ($_URL[0] === "create") {
             $data['message'] = "There was an error when registering the game, try again.";
         }
     } else {
+        header("HTTP/1.1 400 Bad Request: missing data");
         $data['message'] = "Please set all data";
     }
 
@@ -69,6 +70,7 @@ if ($_URL[0] === "delete") {
             $data['message'] = $e->getMessage();
         }
     } else {
+        header("HTTP/1.1 400 Bad Request: missing data");
         $data['message'] = "Please set all data";
     }
 

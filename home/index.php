@@ -20,7 +20,7 @@
         <h2 class="col-lg-8 col-xl-6 mx-auto fs-5 my-5 py-2 text-center">Uma ingênua API para <b>realizar interações com o banco de dados</b> de uma loja fictícia de jogos <img src="./home/assets/img/stars.svg" alt="✨"></h2>
 
         <section class="row d-flex align-items-center py-4 bg-dark text-light shadow-stripe">
-            <div class="col-xl-7 me-auto">
+            <div class="mt-5 mt-xl-0 col-xl-7 me-auto">
                 <h5>Mantendo o projeto simples...</h5>
                 <hr class="w-25 my-4">
                 <p>Não é necessário a utilização de headers para o consumo da API, é possível realizar todas as
@@ -78,13 +78,13 @@
                 </div>
             </div>
 
-            <h4 class="url col-12 col-lg-6 my-4">
-                <span>
+            <h4 class="col-12 mx-auto mt-5 mb-0 text-center">
+                <span class="font-monospace fs-5">
                     https://games-store-api.herokuapp.com/...
                 </span>
             </h4>
 
-            <ul class="list-unstyled mx-auto mt-3 d-flex flex-wrap justify-content-evenly p-0 pb-4 mt-5">
+            <ul class="list-unstyled mx-auto mt-3 d-flex flex-wrap justify-content-evenly p-0 pb-4 mt-4">
                 <?php
 
                 $codeExemples = file_get_contents("home/assets/examples.json");

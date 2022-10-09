@@ -1,21 +1,23 @@
 # Games Store API
 
+---
+
 ## Sobre
 
-Esta é uma API (*Application Program Interface*) que permite o acesso e a interação com o banco de dados de uma fictícia loja de jogos, armazenando e provendo dados necessários para a visualização, criação, edição e exclusão de jogos no banco de dados da loja.
+Esta é uma API (*Application Program Interface*) que permite a visualização e interação com o banco de dados de uma fictícia loja de jogos. Permitindo a visualização, criação, edição e exclusão de jogos no banco de dados da loja, a API irá armazenar informações de todos os jogos cadastrados.
 
 ## URI de requisições
 
 A URI principal para as requisições é a raiz do projeto, na raiz está também a página de documentação da API com exemplos de todos os métodos disponíveis que você pode usar como referência.
 
-Há um deploy para testes feito com os recursos gratuítos do [Heroku](https://heroku.com), uma plataforma de nuvem que suporta PHP e permite a hospedagem de projetos como este em seu plano grauíto. Você pode testar a API com este deploy na seguinte URL: [ `https://games-store-api.herokuapp.com/`](https://games-store-api.herokuapp.com/)
+Em um servidor online há um deploy para testes, o mesmo foi feito com os recursos gratuítos do [Heroku.com](https://heroku.com), uma plataforma de nuvem que suporta o PHP e permite a hospedagem de projetos como este em seu plano gratuito. Você pode testar a API com este deploy na seguinte URL: [ `https://games-store-api.herokuapp.com`](https://games-store-api.herokuapp.com)
 
 
 ## Como usar
 
-Para realizar todas as operações é necessário apenas enviar os devidos dados na URL da API. Então basta colocar as informações a partir da sua necessidade na URI e voilà, você terá a URL final com a estrutura da requisição pronta.
+Para realizar todas as operações é necessário enviar os devidos dados na URL da API. Então basta colocar as informações a partir da sua necessidade na URI e voilà, você terá a URL final com a estrutura da requisição pronta.
 
-Referência de URI para operação
+##### Referência de URI para operação
 
 - ###### CREATE
     ``create/[NOME]/[PREÇO]/[CATEGORIA]/[DESENVOLVEDORA]``
@@ -29,8 +31,6 @@ Referência de URI para operação
 
 - ###### DELETE
     ``delete/[ID]``
-
----
 
 Veja detalhes e exemplos das operações na documentação completa da API acessando a home da página, na raiz do projeto. (Também hospedada no deploy de teste [https://games-store-api.herokuapp.com/](https://games-store-api.herokuapp.com/))
 
@@ -52,6 +52,7 @@ Os dados acima podem ser obtidos com a seguinte requisição:
 
 <details>
     <summary>Resposta em JSON</summary>
+    
 ```json
 {
     "games": [
@@ -67,3 +68,21 @@ Os dados acima podem ser obtidos com a seguinte requisição:
 }
 ```
 </details>
+
+## Erros
+
+Sempre que algo na requisição der errado a resposta será um json com uma mensagem informando qual foi o erro no seguinte formato:
+
+```json
+{
+    "message": "Game with id '314' not found"
+}
+```
+
+E a resposta também terá o status code correspondente ao erro:
+
+```
+[Status] 404 Not Found
+```
+
+**Em caso de erros com o servidor (status code 500) em requisições na hospedagem de testes no [Heroku](https://heroku.com), faça a requisição novamente pois é possível que o servidor tenha problemas de conexão. <sub><sup>Não dá para exigir muito de serviço gratuito né rs</sup></sub>*

@@ -1,6 +1,5 @@
 * {
     font-family: sans-serif;
-
 }
 
 .shadow-stripe {
@@ -35,6 +34,7 @@
 }
 
 @keyframes floating {
+
     0%,
     100% {
         transform: translatey(0) translateX(-40px);
@@ -46,9 +46,6 @@
         transform: translate(0, 6px) translateX(-40px);
     }
 }
-
-
-
 
 .collapser::after {
     content: '▲';
